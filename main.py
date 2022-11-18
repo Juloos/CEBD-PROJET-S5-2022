@@ -1,5 +1,5 @@
-
-import sys, sqlite3
+import sys
+import sqlite3
 from utils import db
 from utils import display
 from utils import excel_extractor
@@ -13,9 +13,9 @@ from actions.v0_action_fct_fournie_2_partie_0 import AppFctFournie2Partie0
 from actions.v0_action_fct_comp_1_partie_1 import AppFctComp1Partie1
 from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
 
+
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
-
     # Création d'un signal destiné à être émis lorsque la table est modifiée
     changedValue = pyqtSignal()
 
@@ -46,9 +46,9 @@ class AppWindow(QMainWindow):
     # Définition des actions
     ####################################################################################################################
 
-        ###################################### Actions BD V0 (ne pas toucher) #######################################
+    ###################################### Actions BD V0 (ne pas toucher) #######################################
 
-        # Action en cas de clic sur le bouton de création de base de données (V0)
+    # Action en cas de clic sur le bouton de création de base de données (V0)
     def createDBV0(self):
 
         try:
@@ -57,7 +57,9 @@ class AppWindow(QMainWindow):
 
         except Exception as e:
             # En cas d'erreur, on affiche un message
-            display.refreshLabel(self.ui.label_retour_BD, "L'erreur suivante s'est produite pendant lors de la création de la base : "+repr(e)+".")
+            display.refreshLabel(self.ui.label_retour_BD,
+                                 "L'erreur suivante s'est produite pendant lors de la création de la base : " + repr(
+                                     e) + ".")
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
@@ -75,7 +77,8 @@ class AppWindow(QMainWindow):
 
         except Exception as e:
             # En cas d'erreur, on affiche un message
-            display.refreshLabel(self.ui.label_retour_BD, "L'erreur suivante s'est produite lors de l'insertion des données : "+repr(e)+".")
+            display.refreshLabel(self.ui.label_retour_BD,
+                                 "L'erreur suivante s'est produite lors de l'insertion des données : " + repr(e) + ".")
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
@@ -93,7 +96,8 @@ class AppWindow(QMainWindow):
 
         except Exception as e:
             # En cas d'erreur, on affiche un message
-            display.refreshLabel(self.ui.label_retour_BD, "Erreur lors de la suppression de la base de données : " + repr(e)+".")
+            display.refreshLabel(self.ui.label_retour_BD,
+                                 "Erreur lors de la suppression de la base de données : " + repr(e) + ".")
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès (le commit est automatique pour un DROP TABLE)
@@ -103,7 +107,7 @@ class AppWindow(QMainWindow):
 
     ###################################### Actions BD V1 #######################################
 
-        # Action en cas de clic sur le bouton de création de base de données (V1)
+    # Action en cas de clic sur le bouton de création de base de données (V1)
     def createDBV1(self):
 
         try:
@@ -111,10 +115,10 @@ class AppWindow(QMainWindow):
             db.updateDBfile(self.data, "data/v1_createDB.sql")
 
         except Exception as e:
-             # En cas d'erreur, on affiche un message
+            # En cas d'erreur, on affiche un message
             display.refreshLabel(self.ui.label_retour_BD,
-                                  "L'erreur suivante s'est produite pendant lors de la création de la base V1: " + repr(
-                                      e) + ".")
+                                 "L'erreur suivante s'est produite pendant lors de la création de la base V1: " + repr(
+                                     e) + ".")
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
@@ -132,7 +136,9 @@ class AppWindow(QMainWindow):
 
         except Exception as e:
             # En cas d'erreur, on affiche un message
-            display.refreshLabel(self.ui.label_retour_BD, "L'erreur suivante s'est produite lors de l'insertion des données V1 : "+repr(e)+".")
+            display.refreshLabel(self.ui.label_retour_BD,
+                                 "L'erreur suivante s'est produite lors de l'insertion des données V1 : " + repr(
+                                     e) + ".")
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
@@ -156,7 +162,8 @@ class AppWindow(QMainWindow):
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
-            display.refreshLabel(self.ui.label_retour_BD, "Les triggers de la base de données V1 ont été créés avec succès.")
+            display.refreshLabel(self.ui.label_retour_BD,
+                                 "Les triggers de la base de données V1 ont été créés avec succès.")
             self.data.commit()
             # On émet le signal indiquant la modification de la table
             self.changedValue.emit()
@@ -170,7 +177,8 @@ class AppWindow(QMainWindow):
 
         except Exception as e:
             # En cas d'erreur, on affiche un message
-            display.refreshLabel(self.ui.label_retour_BD, "Erreur lors de la suppression de la base de données V1: " + repr(e)+".")
+            display.refreshLabel(self.ui.label_retour_BD,
+                                 "Erreur lors de la suppression de la base de données V1: " + repr(e) + ".")
 
         else:
             # Si tout s'est bien passé, on affiche le message de succès (le commit est automatique pour un DROP TABLE)
@@ -259,6 +267,7 @@ class AppWindow(QMainWindow):
 
         # On laisse l'évènement de clôture se terminer normalement
         event.accept()
+
 
 # Lancement de la fenêtre principale
 app = QApplication(sys.argv)

@@ -3,7 +3,8 @@ from sqlite3 import IntegrityError
 
 import pandas
 
-def read_excel_file_V0(data:sqlite3.Connection, file):
+
+def read_excel_file_V0(data: sqlite3.Connection, file):
     # Lecture de l'onglet du fichier excel LesSportifsEQ, en interprétant toutes les colonnes comme des strings
     # pour construire uniformement la requête
     df_sportifs = pandas.read_excel(file, sheet_name='LesSportifsEQ', dtype=str)
@@ -13,7 +14,8 @@ def read_excel_file_V0(data:sqlite3.Connection, file):
     for ix, row in df_sportifs.iterrows():
         try:
             query = "insert into V0_LesSportifsEQ values ({},'{}','{}','{}','{}','{}',{})".format(
-                row['numSp'], row['nomSp'], row['prenomSp'], row['pays'], row['categorieSp'], row['dateNaisSp'], row['numEq'])
+                row['numSp'], row['nomSp'], row['prenomSp'], row['pays'], row['categorieSp'], row['dateNaisSp'],
+                row['numEq'])
             # On affiche la requête pour comprendre la construction. A enlever une fois compris.
             print(query)
             cursor.execute(query)
@@ -41,8 +43,9 @@ def read_excel_file_V0(data:sqlite3.Connection, file):
         except IntegrityError as err:
             print(f"{err} : \n{row}")
 
-#TODO 1.3a : modifier la lecture du fichier Excel pour lire l'ensemble des données et les intégrer dans le schéma de la BD V1
-def read_excel_file_V1(data:sqlite3.Connection, file):
+
+# TODO 1.3a : modifier la lecture du fichier Excel pour lire l'ensemble des données et les intégrer dans le schéma de la BD V1
+def read_excel_file_V1(data: sqlite3.Connection, file):
     # Lecture de l'onglet du fichier excel LesSportifsEQ, en interprétant toutes les colonnes comme des strings
     # pour construire uniformement la requête
     df_sportifs = pandas.read_excel(file, sheet_name='LesSportifsEQ', dtype=str)
