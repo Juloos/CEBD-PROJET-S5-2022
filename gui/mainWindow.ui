@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>710</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Projet Jeux Olympiques</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="Line" name="line_V1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>681</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_V0">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>691</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Base de données V0 (ne pas toucher)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_partie_0">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>220</y>
+      <width>681</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_partie_0">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>230</y>
+      <width>691</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Partie 0 : fonctions fournies (observer le code)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_partie_1">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>340</y>
+      <width>685</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_partie_1">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>349</y>
+      <width>691</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Partie 1 : fonctions à compléter (BD V0 - 1.1 et 1.2 -  BD V1  - 1.3 à 1.5)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_partie_1_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>500</y>
+      <width>685</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>1.4 Créer une vue LesAgesSportifs (numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp) et modifier l'affichage (Consultation BD V1)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_partie_1_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>450</y>
+      <width>611</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>1.3 Créer une nouvelle BD V1,  insérer les données fournies en Excel et modifier l'affichage (consultation BD V1)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_partie_1_5">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>540</y>
+      <width>685</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>1.5 Créer une vue LesNbsEquipiers(numEq, nbEquipiersEq) et modifier l'affichage (Consultation BD V1)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line_partie_2">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>562</y>
+      <width>685</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_partie_2">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>571</y>
+      <width>691</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Partie 2 : fonctions d'interrogation à développer sur BD V1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_partie_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>670</y>
+      <width>685</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_partie_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>685</y>
+      <width>691</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Partie 3 : fonctions de modification à développer sur BD V1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_fin">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>810</y>
+      <width>685</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_retour_BD">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>190</y>
+      <width>689</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>681</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_V0">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_supprimer_V0">
+       <property name="text">
+        <string>Suppression BD V0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_creer_V0">
+       <property name="text">
+        <string>Création BD V0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_inserer_V0">
+       <property name="text">
+        <string>Insertion BD V0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_21">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_consulter_V0">
+       <property name="text">
+        <string>Consultation BD V0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>681</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_0_1">
+     <item>
+      <spacer name="horizontalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_fct_fournie_1">
+       <property name="text">
+        <string>Nom, prénom, pays, catégorie des sportifs de l'équipe 1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>300</y>
+      <width>685</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_0_2">
+     <item>
+      <spacer name="horizontalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_fct_fournie_2">
+       <property name="text">
+        <string>Nom, prénom, pays, catégorie des sportifs d'une équipe au choix</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>600</y>
+      <width>685</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_2_1">
+     <item>
+      <spacer name="horizontalSpacer_18">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2_1">
+       <property name="text">
+        <string>2.1 Afficher l'âge moyen des équipes qui ont gagné une médaille d'or</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_17">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>640</y>
+      <width>685</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_2_2">
+     <item>
+      <spacer name="horizontalSpacer_20">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2_2">
+       <property name="text">
+        <string>2.2 Afficher le classement des pays selon leur nombre de médailles (pays, nbOr, nbArgent, nbBronze)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_19">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>710</y>
+      <width>685</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_3_1">
+     <item>
+      <spacer name="horizontalSpacer_24">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3_1">
+       <property name="text">
+        <string>3.1 Gérer les inscriptions à des épreuves</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_23">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>750</y>
+      <width>681</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_3_2">
+     <item>
+      <spacer name="horizontalSpacer_26">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3_2">
+       <property name="text">
+        <string>3.2 Gérer les résultats aux épreuves</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_25">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>379</y>
+      <width>685</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_1_1">
+     <item>
+      <spacer name="horizontalSpacer_12">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_1_1">
+       <property name="text">
+        <string>1.1 Liste des épreuves d'une catégorie. Version 1 (catégories fixées par l'interface)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_11">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>420</y>
+      <width>685</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_partie_1_2">
+     <item>
+      <spacer name="horizontalSpacer_14">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_1_2">
+       <property name="text">
+        <string>1.2 Liste des épreuves d'une catégorie. Version 2 (catégories extraites de la BD)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_13">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_trigger">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>780</y>
+      <width>685</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>3.3 Créer un trigger pertinent</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>681</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_V1">
+     <item>
+      <spacer name="horizontalSpacer_9">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_supprimer_V1">
+       <property name="text">
+        <string>Suppression BD V1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_10">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_creer_V1">
+       <property name="text">
+        <string>Création BD V1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_27">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Création triggers BD V1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_15">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_inserer_V1">
+       <property name="text">
+        <string>Insertion BD V1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_31">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_consulter_V1">
+       <property name="text">
+        <string>Consultation BD V1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_16">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_V1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>691</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Base de données V1 (à réaliser,  voir 1.3 à 1.5)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>710</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFiles">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <addaction name="menuFiles"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionQuitter</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_creer_V0</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>createDBV0()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>135</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_inserer_V0</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>insertDBV0()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>463</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_supprimer_V0</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>deleteDBV0()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>598</x>
+     <y>139</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_consulter_V0</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openDataV0()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>628</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_fct_fournie_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_fournie_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>488</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_fct_fournie_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_fournie_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>514</x>
+     <y>347</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_supprimer_V1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>deleteDBV1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>190</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_creer_V1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>createDBV1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_inserer_V1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>insertDBV1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>525</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>512</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_consulter_V1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openDataV1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>646</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>693</x>
+     <y>206</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_1_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_comp_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>555</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>686</x>
+     <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_1_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_comp_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>549</x>
+     <y>467</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>662</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>createTriggersDBV1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>350</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>362</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>createDBV0()</slot>
+  <slot>insertDBV0()</slot>
+  <slot>deleteDBV0()</slot>
+  <slot>openDataV0()</slot>
+  <slot>open_fct_fournie_1()</slot>
+  <slot>open_fct_fournie_2()</slot>
+  <slot>open_fct_comp_1()</slot>
+  <slot>open_fct_comp_2()</slot>
+  <slot>deleteDBV1()</slot>
+  <slot>createDBV1()</slot>
+  <slot>insertDBV1()</slot>
+  <slot>openDataV1()</slot>
+  <slot>createTriggersDBV1()</slot>
+ </slots>
+</ui>
