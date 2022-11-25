@@ -9,7 +9,7 @@ CREATE TABLE LesSportifs
   dateNaisSp DATE,
   CONSTRAINT SP_CK1 CHECK(numSp > 0),
   CONSTRAINT SP_CK2 CHECK(categorieSp IN ('feminin','masculin')),
-  CONSTRAINT SP_CK3 CHECK(numEq > 0)
+  CONSTRAINT SP_PK PRIMARY KEY(numSp)
 );
 
 CREATE TABLE LesEpreuves
@@ -29,7 +29,7 @@ CREATE TABLE LesEpreuves
   CONSTRAINT EP_CK2 CHECK (categorieEp IN ('feminin','masculin','mixte')),
   CONSTRAINT EP_CK3 CHECK (numEp > 0),
   CONSTRAINT EP_CK4 CHECK (nbSportifsEp > 0)
-)
+);
 CREATE TABLE LesEquipes
 (
   numEq NUMBER(4),
@@ -49,7 +49,7 @@ CREATE TABLE LesParticipations
   num NUMBER(4),
   numEp NUMBER(3),
   CONSTRAINT PA_PK PRIMARY KEY (num, numEp),
-  CONSTRAINT PA_CK1 CHECK (numSp > 0),
+  CONSTRAINT PA_CK1 CHECK (num > 0),
   CONSTRAINT PA_CK2 CHECK (numEp > 0)
 );
 
@@ -66,7 +66,7 @@ CREATE TABLE A
   numEp NUMBER(3),
   CONSTRAINT A_PK PRIMARY KEY (nomDi, numEp),
   CONSTRAINT A_CK1 CHECK (numEp > 0)
-)
+);
 
 CREATE TABLE LesEquipiers
 (
