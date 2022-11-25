@@ -40,7 +40,13 @@ class AppTablesDataV1(QDialog):
         self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves,
                           "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, dateEp, MedailleOr, MedailleArgent, MedailleBronze FROM LesEpreuves")
         self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs,
-                          "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, numEq FROM LesSportifsEQ")
+                          "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp, numEq "
+                          "FROM LesSportifsEQ JOIN LesAgesSportifs USING (numSp)")
+        self.refreshTable(self.ui.label_agesSportifs, self.ui.tableAgesSportifs,
+                          "SELECT numSp, ageSp FROM LesAgesSportifs")
+        self.refreshTable(self.ui.label_nbEquipiers, self.ui.tableNbEquipiers,
+                          "SELECT numEq, nbEquipiers FROM LesNbsEquipiers")
+
         # TODO 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         self.refreshTable(self.ui.label_equipes, self.ui.tableEquipes,
                             "SELECT numEq, paysEq FROM LesEquipes")
@@ -52,5 +58,3 @@ class AppTablesDataV1(QDialog):
                             "SELECT num, numEp FROM LesParticipations")
         self.refreshTable(self.ui.label_a, self.ui.tableA,
                             "SELECT nomDi, numEp  FROM A")
-        # TODO 1.4b : ajouter l'affichage des éléments de la vue LesAgesSportifs après l'avoir créée
-        # TODO 1.5b : ajouter l'affichage des éléments de la vue LesNbsEquipiers après l'avoir créée

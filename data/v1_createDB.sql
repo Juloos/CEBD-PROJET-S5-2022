@@ -75,8 +75,15 @@ CREATE TABLE LesEquipiers
   CONSTRAINT EQ_PK PRIMARY KEY (numEq, numSp),
   CONSTRAINT EQ_CK1 CHECK (numEq > 0),
   CONSTRAINT EQ_CK2 CHECK (numSp > 0)
-)
+);
 
--- TODO 1.4a : ajouter la définition de la vue LesAgesSportifs
--- TODO 1.5a : ajouter la définition de la vue LesNbsEquipiers
+CREATE VIEW LesAgesSportifs(numSp, ageSp) AS
+    SELECT numSp, DATE('now') - dateNaisSp AS ageSp
+        FROM LesSportifsEQ;
+
+CREATE VIEW LesNbsEquipiers(numEq, nbEquipiers) AS
+    SELECT numEq, COUNT(numSp) AS nbEquipiers
+        FROM LesEquipiers
+        GROUP BY numEq;
+
 -- TODO 3.3 : ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)
