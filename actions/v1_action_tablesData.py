@@ -40,7 +40,7 @@ class AppTablesDataV1(QDialog):
         self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves,
                           "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, dateEp, MedailleOr, MedailleArgent, MedailleBronze FROM LesEpreuves")
         self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs,
-                          "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp, numEq "
+                          "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp "
                           "FROM LesSportifs JOIN LesAgesSportifs USING (numSp)")
 
 

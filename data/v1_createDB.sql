@@ -20,10 +20,10 @@ CREATE TABLE LesEpreuves
   nomDi VARCHAR2(25),
   categorieEp VARCHAR2(10),
   nbSportifsEp NUMBER(2),
+  dateEp DATE,
   MedailleOr NUMBER(4),
   MedailleArgent NUMBER(4),
   MedailleBronze NUMBER(4),
-  dateEp DATE,
   CONSTRAINT EP_PK PRIMARY KEY (numEp),
   CONSTRAINT EP_CK1 CHECK (formeEp IN ('individuelle','par equipe','par couple')),
   CONSTRAINT EP_CK2 CHECK (categorieEp IN ('feminin','masculin','mixte')),
@@ -83,6 +83,7 @@ CREATE VIEW LesAgesSportifs(numSp, ageSp) AS
 
 CREATE VIEW LesNbsEquipiers(numEq, nbEquipiers) AS
     SELECT numEq, COUNT(numSp) AS nbEquipiers
-        FROM LesEquipiers;
+        FROM LesEquipiers
+        GROUP BY numEq;
 
 -- TODO 3.3 : ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)
