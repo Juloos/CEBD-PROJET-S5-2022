@@ -1,4 +1,4 @@
-CREATE TABLE V0_LesSportifsEQ
+CREATE TABLE V0_LesSportifs
 (
   numSp NUMBER(4),
   nomSp VARCHAR2(20),

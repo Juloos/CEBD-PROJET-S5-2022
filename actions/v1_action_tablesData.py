@@ -41,20 +41,24 @@ class AppTablesDataV1(QDialog):
                           "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, dateEp, MedailleOr, MedailleArgent, MedailleBronze FROM LesEpreuves")
         self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs,
                           "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp, numEq "
-                          "FROM LesSportifsEQ JOIN LesAgesSportifs USING (numSp)")
-        self.refreshTable(self.ui.label_agesSportifs, self.ui.tableAgesSportifs,
-                          "SELECT numSp, ageSp FROM LesAgesSportifs")
-        self.refreshTable(self.ui.label_nbEquipiers, self.ui.tableNbEquipiers,
-                          "SELECT numEq, nbEquipiers FROM LesNbsEquipiers")
+                          "FROM LesSportifs JOIN LesAgesSportifs USING (numSp)")
+
 
         # TODO 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         self.refreshTable(self.ui.label_equipes, self.ui.tableEquipes,
                             "SELECT numEq, paysEq FROM LesEquipes")
         self.refreshTable(self.ui.label_disciplines, self.ui.tableDisciplines,
                           "SELECT nomDi FROM LesDisciplines")
-        self.refreshTable(self.ui.participants, self.ui.tableParticipants,
+        self.refreshTable(self.ui.label_participants, self.ui.tableParticipants,
                           "SELECT num FROM LesParticipants")
         self.refreshTable(self.ui.label_participations, self.ui.tableParticipations,
                             "SELECT num, numEp FROM LesParticipations")
         self.refreshTable(self.ui.label_a, self.ui.tableA,
                             "SELECT nomDi, numEp  FROM A")
+        self.refreshTable(self.ui.label_equipiers, self.ui.tableEquipiers,
+                          "SELECT numEq, numSp FROM LesEquipiers"),
+
+        self.refreshTable(self.ui.label_agesSportifs, self.ui.tableAgesSportifs,
+                          "SELECT numSp, ageSp FROM LesAgesSportifs")
+        self.refreshTable(self.ui.label_nbEquipiers, self.ui.tableNbEquipiers,
+                          "SELECT numEq, nbEquipiers FROM LesNbsEquipiers")

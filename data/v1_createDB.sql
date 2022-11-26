@@ -79,11 +79,10 @@ CREATE TABLE LesEquipiers
 
 CREATE VIEW LesAgesSportifs(numSp, ageSp) AS
     SELECT numSp, DATE('now') - dateNaisSp AS ageSp
-        FROM LesSportifsEQ;
+        FROM LesSportifs;
 
 CREATE VIEW LesNbsEquipiers(numEq, nbEquipiers) AS
     SELECT numEq, COUNT(numSp) AS nbEquipiers
-        FROM LesEquipiers
-        GROUP BY numEq;
+        FROM LesEquipiers;
 
 -- TODO 3.3 : ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)

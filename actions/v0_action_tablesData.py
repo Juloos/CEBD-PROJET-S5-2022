@@ -40,4 +40,4 @@ class AppTablesDataV0(QDialog):
         self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves,
                           "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, dateEp FROM V0_LesEpreuves")
         self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs,
-                          "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, numEq FROM V0_LesSportifsEQ")
+                          "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, numEq FROM V0_LesSportifs")

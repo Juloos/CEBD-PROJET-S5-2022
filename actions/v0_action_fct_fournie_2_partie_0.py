@@ -24,7 +24,7 @@ class AppFctFournie2Partie0(QDialog):
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
-                    "SELECT nomSp, prenomSp, pays, categorieSp FROM V0_LesSportifsEQ WHERE numEq = ?",
+                    "SELECT nomSp, prenomSp, pays, categorieSp FROM V0_LesSportifs WHERE numEq = ?",
                     [self.ui.lineEdit.text().strip()])
             except Exception as e:
                 self.ui.table_fct_fournie_2.setRowCount(0)
