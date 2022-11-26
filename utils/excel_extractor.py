@@ -47,7 +47,6 @@ def read_excel_file_V0(data: sqlite3.Connection, file):
         tryquery(query)
 
 
-# TODO 1.3a : modifier la lecture du fichier Excel pour lire l'ensemble des données et les intégrer dans le schéma de la BD V1
 def read_excel_file_V1(data: sqlite3.Connection, file):
     tryquery = lambda query: pretryquery(data.cursor(), query)
 

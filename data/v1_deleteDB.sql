@@ -1,4 +1,3 @@
--- TODO 1.3a : Détruire les tables manquantes et modifier celles ci-dessous
 DROP VIEW IF EXISTS LesAgesSportifs;
 DROP VIEW IF EXISTS LesNbsEquipiers;
 DROP TABLE IF EXISTS LesEpreuves;

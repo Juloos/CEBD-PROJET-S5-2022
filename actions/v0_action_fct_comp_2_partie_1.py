@@ -16,6 +16,7 @@ class AppFctComp2Partie1(QDialog):
         # on récupère les catégories
         for categorie in self.data.cursor().execute("SELECT DISTINCT categorieEp FROM V0_LesEpreuves"):
             self.ui.comboBox_fct_comp_2.addItem(categorie[0])
+        self.refreshResult()
 
     # Fonction de mise à jour de l'affichage
     def refreshResult(self):
@@ -27,7 +28,7 @@ class AppFctComp2Partie1(QDialog):
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
-                    "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, strftime('%Y-%m-%d',dateEp,'unixepoch') FROM V0_LesEpreuves WHERE categorieEp = ?",
+                    "SELECT numEp, nomEp, formeEp, nomDi, nbSportifsEp, strftime('%Y-%m-%d',dateEp) FROM V0_LesEpreuves WHERE categorieEp = ?",
                     [self.ui.comboBox_fct_comp_2.currentText().strip()])
             except Exception as e:
                 self.ui.table_fct_comp_3.setRowCount(0)

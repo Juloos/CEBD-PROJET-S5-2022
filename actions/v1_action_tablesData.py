@@ -44,7 +44,6 @@ class AppTablesDataV1(QDialog):
                           "FROM LesSportifs JOIN LesAgesSportifs USING (numSp)")
 
 
-        # TODO 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
         self.refreshTable(self.ui.label_equipes, self.ui.tableEquipes,
                             "SELECT numEq, paysEq FROM LesEquipes")
         self.refreshTable(self.ui.label_disciplines, self.ui.tableDisciplines,

@@ -16,7 +16,7 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
+     <item alignment="Qt::AlignRight">
       <widget class="QLabel" name="labelEdit_fct_comp_2">
        <property name="text">
         <string>Saisissez une catégorie :</string>
@@ -30,19 +30,6 @@
          <width>150</width>
          <height>16777215</height>
         </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_fct_comp_2">
-       <property name="maximumSize">
-        <size>
-         <width>75</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Valider</string>
        </property>
       </widget>
      </item>
@@ -94,12 +81,7 @@
      </column>
      <column>
       <property name="text">
-       <string>categorieEp</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>nomDi</string>
+       <string>nbSportifsEp</string>
       </property>
      </column>
      <column>
@@ -124,14 +106,14 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton_fct_comp_2</sender>
-   <signal>clicked()</signal>
+   <sender>comboBox_fct_comp_2</sender>
+   <signal>currentTextChanged(QString)</signal>
    <receiver>fct_comp_2</receiver>
    <slot>refreshResult()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>364</x>
-     <y>52</y>
+     <x>636</x>
+     <y>17</y>
     </hint>
     <hint type="destinationlabel">
      <x>444</x>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Liste des épreuves d'une catégorie (version 2, catégories extraites de la BD)</string>
+   <string>Liste des épreuves d'une catégorie (version 1, catégories fixées par l'interface)</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="3" column="0">
@@ -47,11 +47,6 @@
      </column>
      <column>
       <property name="text">
-       <string>categorieEp</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>nbSportifsEp</string>
       </property>
      </column>
@@ -74,7 +69,7 @@
    </item>
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
+     <item alignment="Qt::AlignRight">
       <widget class="QLabel" name="labelEdit_fct_comp_1">
        <property name="text">
         <string>Saisissez une catégorie :</string>
@@ -106,19 +101,6 @@
        </item>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="valider_fct_comp_1">
-       <property name="maximumSize">
-        <size>
-         <width>75</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Valider</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item row="1" column="0">
@@ -139,14 +121,14 @@
  <resources/>
  <connections>
   <connection>
-   <sender>valider_fct_comp_1</sender>
-   <signal>clicked()</signal>
+   <sender>comboBox_fct_comp_1</sender>
+   <signal>currentTextChanged(QString)</signal>
    <receiver>fct_comp_1</receiver>
    <slot>refreshResult()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>364</x>
-     <y>52</y>
+     <x>636</x>
+     <y>17</y>
     </hint>
     <hint type="destinationlabel">
      <x>444</x>

@@ -1,4 +1,3 @@
--- TODO 1.3a : Créer les tables manquantes et modifier celles ci-dessous
 CREATE TABLE LesSportifs
 (
   numSp NUMBER(4),
