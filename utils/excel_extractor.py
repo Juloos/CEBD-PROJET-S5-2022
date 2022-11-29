@@ -89,10 +89,13 @@ def read_excel_file_V1(data: sqlite3.Connection, file):
             query = query + "null"
 
         if row['numEp'] in df_resultats['numEp'].values:
-            query += ",'{}','{}','{}')".format(df_resultats['gold'], df_resultats['silver'], df_resultats['bronze'])
+            query += ",{},{},{})".format(
+                df_resultats.loc[df_resultats['numEp'] == row['numEp'], 'gold'].values[0],
+                df_resultats.loc[df_resultats['numEp'] == row['numEp'], 'silver'].values[0],
+                df_resultats.loc[df_resultats['numEp'] == row['numEp'], 'bronze'].values[0]
+            )
         else:
             query += ",null,null,null)"
-
         tryquery(query)
 
         if row['nomDi'] != 'null':
