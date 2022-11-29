@@ -14,6 +14,8 @@ from actions.v0_action_fct_comp_1_partie_1 import AppFctComp1Partie1
 from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
 from actions.v1_action_tableAgeMoyen_partie_2 import AppTableAgeMoyenV1
 from actions.v1_action_tableClassementPays_partie_2 import AppTableClassementPaysV1
+from actions.v1_action_editeurInscriptions import AppEditeurInscriptionsV1
+from actions.v1_action_editeurResultats import AppEditeurResultatsV1
 
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
@@ -32,6 +34,8 @@ class AppWindow(QMainWindow):
     fct_comp_2_dialog = None
     tableAgeMoyenV1 = None
     tableClassementPaysV1 = None
+    editeurInscriptions = None
+    editeurResultats = None
 
     # Constructeur
     def __init__(self):

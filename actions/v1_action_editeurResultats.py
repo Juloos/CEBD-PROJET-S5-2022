@@ -6,12 +6,12 @@ from PyQt5 import uic
 
 
 # Classe permettant d'afficher la fenêtre de visualisation des données
-class AppTablesDataV1(QDialog):
+class AppEditeurResultatsV1(QDialog):
 
     # Constructeur
     def __init__(self, data: sqlite3.Connection):
         super(QDialog, self).__init__()
-        self.ui = uic.loadUi("gui/v1_tablesData.ui", self)
+        self.ui = uic.loadUi("gui/v1_editeurResultats.ui", self)
         self.data = data
 
         # On met à jour l'affichage avec les données actuellement présentes dans la base

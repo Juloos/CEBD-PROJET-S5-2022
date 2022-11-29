@@ -26,7 +26,7 @@ class AppFctComp1Partie1(QDialog):
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
-                    "SELECT numEp, nomEp, formeEp, nomDi, nbSportifsEp, strftime('%Y-%m-%d',dateEp) FROM V0_LesEpreuves WHERE categorieEp = ?",
+                    "SELECT numEp, nomEp, formeEp, nomDi, ifnull(nbSportifsEp, 0), strftime('%Y-%m-%d',dateEp) FROM V0_LesEpreuves WHERE categorieEp = ?",
                     [self.ui.comboBox_fct_comp_1.currentText().strip()])
             except Exception as e:
                 self.ui.table_fct_comp_1.setRowCount(0)
