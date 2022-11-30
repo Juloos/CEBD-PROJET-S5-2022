@@ -54,8 +54,6 @@ class AppTablesDataV1(QDialog):
                           "SELECT num FROM LesParticipants ORDER BY num")
         self.refreshTable(self.ui.label_participations, self.ui.tableParticipations,
                             "SELECT num, numEp FROM LesParticipations ORDER BY num")
-        self.refreshTable(self.ui.label_a, self.ui.tableA,
-                            "SELECT nomDi, numEp  FROM A ORDER BY nomDi")
         self.refreshTable(self.ui.label_equipiers, self.ui.tableEquipiers,
                           "SELECT numEq, numSp FROM LesEquipiers ORDER BY numEq"),
 
