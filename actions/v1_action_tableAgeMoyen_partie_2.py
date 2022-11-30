@@ -22,9 +22,16 @@ class AppTableAgeMoyenV1(QDialog):
         display.refreshLabel(self.ui.label_tableAgeMoyen, "")
         try:
             cursor = self.data.cursor()
-            result = cursor.execute("SELECT numEq, 1, 10, 3 FROM LesEquipes")
+            # âge moyen par équipe
+            result = cursor.execute("WITH AgE AS (SELECT numEq, AVG(ageSp) AS ageMoyen FROM LesAgesSportifs "
+                                    "JOIN LesEquipiers USING (numSp) GROUP BY numEq), "
+                                    "EqOr AS (SELECT numEq, nbEquipiers, ageMoyen FROM AgE "
+                                    "JOIN LesNbsEquipiers USING (numEq))"
+                                    "SELECT numEq, nbEquipiers, ageMoyen FROM EqOr WHERE numEq IN ("
+                                    "SELECT medailleOr as numEq FROM LesEpreuves) ")
+
         except Exception as e:
-            self.ui.table_fct_fournie_1.setRowCount(0)
+            self.ui.tableAgeMoyenV1.setRowCount(0)
             display.refreshLabel(self.ui.label_tableAgeMoyen, "Impossible d'afficher les résultats : " + repr(e))
         else:
             display.refreshGenericData(self.ui.tableAgeMoyenV1, result)
