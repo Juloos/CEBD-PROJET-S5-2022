@@ -1213,6 +1213,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_3_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openEditerInscriptionsV1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>352</x>
+     <y>746</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>354</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openEditerResultatsV1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>350</x>
+     <y>786</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>354</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createDBV0()</slot>
@@ -1230,5 +1262,7 @@
   <slot>createTriggersDBV1()</slot>
   <slot>openAgeMoyenV1()</slot>
   <slot>openClassementPaysV1()</slot>
+  <slot>openEditerInscriptionsV1()</slot>
+  <slot>openEditerResultatsV1()</slot>
  </slots>
 </ui>

@@ -14,14 +14,14 @@ from actions.v0_action_fct_comp_1_partie_1 import AppFctComp1Partie1
 from actions.v0_action_fct_comp_2_partie_1 import AppFctComp2Partie1
 from actions.v1_action_tableAgeMoyen_partie_2 import AppTableAgeMoyenV1
 from actions.v1_action_tableClassementPays_partie_2 import AppTableClassementPaysV1
+from actions.v1_action_editeurInscriptions import AppEditeurInscriptionsV1
+from actions.v1_action_editeurResultats import AppEditeurResultatsV1
 
 
 # Classe utilisée pour lancer la fenêtre principale de l'application et définir ses actions
 class AppWindow(QMainWindow):
     # Création d'un signal destiné à être émis lorsque la table est modifiée
     changedValue = pyqtSignal()
-
-    # TODO 3 : ajouter les fenetres (rep. gui) et les actions (rep. actions) correspondant aux 2 items de la partie 3.
 
     # On prévoit des variables pour accueillir les fenêtres supplémentaires
     tablesDataDialogV0 = None
@@ -32,6 +32,8 @@ class AppWindow(QMainWindow):
     fct_comp_2_dialog = None
     tableAgeMoyenV1 = None
     tableClassementPaysV1 = None
+    editeurInscriptions = None
+    editeurResultats = None
 
     # Constructeur
     def __init__(self):
@@ -193,8 +195,6 @@ class AppWindow(QMainWindow):
     # Ouverture des autres fenêtres de l'application
     ####################################################################################################################
 
-    # TODO 3 : ajouter la définition des méthodes déclenchées lors des clicks sur les boutons de la partie 3
-
     # En cas de clic sur le bouton de visualisation des données
     def openDataV0(self):
         if self.tablesDataDialogV0 is not None:
@@ -252,11 +252,21 @@ class AppWindow(QMainWindow):
         self.tableClassementPaysV1 = AppTableClassementPaysV1(self.data)
         self.tableClassementPaysV1.show()
 
+    def openEditerInscriptionsV1(self):
+        if self.editeurInscriptions is not None:
+            self.editeurInscriptions.close()
+        self.editeurInscriptions = AppEditeurInscriptionsV1(self.data)
+        self.editeurInscriptions.show()
+
+    def openEditerResultatsV1(self):
+        if self.editeurResultats is not None:
+            self.editeurResultats.close()
+        self.editeurResultats = AppEditeurResultatsV1(self.data)
+        self.editeurResultats.show()
+
     ####################################################################################################################
     # Fonctions liées aux évènements (signal/slot/event)
     ####################################################################################################################
-
-    # TODO 3 : penser à fermer correctement il faut les fenêtres de la partie 3
 
     # On intercepte l'évènement de cloture de la fenêtre principale pour intercaler quelques actions avant sa fermeture
     def closeEvent(self, event):
@@ -278,6 +288,10 @@ class AppWindow(QMainWindow):
             self.tableAgeMoyenV1.close()
         if (self.tableClassementPaysV1 is not None):
             self.tableClassementPaysV1.close()
+        if (self.editeurInscriptions is not None):
+            self.editeurInscriptions.close()
+        if (self.editeurResultats is not None):
+            self.editeurResultats.close()
 
         # On ferme proprement la base de données
         self.data.close()
