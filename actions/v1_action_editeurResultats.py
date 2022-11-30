@@ -15,6 +15,9 @@ class AppEditeurResultatsV1(QDialog):
         self.data = data
 
         # attribuer les valeurs aux comboBox
+        # les contraintes d'intégrité suivantes ne sont pas prises en compte dans la conception de l'interface :
+        #   - les participants d'une épreuve doivent être du genre que la catégorie de l'épreuve comprend
+        #   - le type des participants (individuel ou équipe) doit être le même que celui de l'épreuve
         self.refreshAll()
 
     def tryquery(self, query):
