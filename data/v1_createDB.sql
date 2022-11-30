@@ -32,8 +32,8 @@ CREATE TABLE LesEpreuves
 CREATE TABLE LesEquipes
 (
   numEq NUMBER(4),
-  paysEq VARCHAR2(20),
-  CONSTRAINT EQ_PK PRIMARY KEY (numEq, paysEq),
+  pays VARCHAR2(20),
+  CONSTRAINT EQ_PK PRIMARY KEY (numEq, pays),
   CONSTRAINT EQ_CK1 CHECK (numEq > 0)
 );
 

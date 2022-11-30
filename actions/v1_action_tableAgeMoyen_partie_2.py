@@ -23,12 +23,22 @@ class AppTableAgeMoyenV1(QDialog):
         try:
             cursor = self.data.cursor()
             # âge moyen par équipe
-            result = cursor.execute("WITH AgE AS (SELECT numEq, AVG(ageSp) AS ageMoyen FROM LesAgesSportifs "
-                                    "JOIN LesEquipiers USING (numSp) GROUP BY numEq), "
-                                    "EqOr AS (SELECT numEq, nbEquipiers, ageMoyen FROM AgE "
-                                    "JOIN LesNbsEquipiers USING (numEq))"
-                                    "SELECT numEq, nbEquipiers, ageMoyen FROM EqOr WHERE numEq IN ("
-                                    "SELECT medailleOr as numEq FROM LesEpreuves) ")
+            result = cursor.execute(
+                "WITH AgE AS ("
+                "   SELECT numEq, AVG(ageSp) AS ageMoyen"
+                "       FROM LesAgesSportifs JOIN LesEquipiers USING (numSp)"
+                "       GROUP BY numEq"
+                "), EqOr AS ("
+                "   SELECT numEq, nbEquipiers, ageMoyen"
+                "       FROM AgE JOIN LesNbsEquipiers USING (numEq)"
+                ")"
+                "SELECT numEq, nbEquipiers, ageMoyen"
+                "   FROM EqOr WHERE numEq IN ("
+                "       SELECT medailleOr as numEq"
+                "       FROM LesEpreuves"
+                "   )"
+                "   ORDER BY numEq"
+            )
 
         except Exception as e:
             self.ui.tableAgeMoyenV1.setRowCount(0)

@@ -39,21 +39,20 @@ class AppTablesDataV1(QDialog):
 
         self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves,
                           "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, "
-                          "ifnull(nbSportifsEp, 0), dateEp, MedailleOr, MedailleArgent, MedailleBronze "
+                          "ifnull(nbSportifsEp, 0), dateEp, medailleOr, medailleArgent, medailleBronze "
                           "FROM LesEpreuves ORDER BY numEp")
         self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs,
                           "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp "
                           "FROM LesSportifs JOIN LesAgesSportifs USING (numSp) ORDER BY numSp")
 
-
         self.refreshTable(self.ui.label_equipes, self.ui.tableEquipes,
-                            "SELECT numEq, paysEq FROM LesEquipes ORDER BY numEq")
+                          "SELECT numEq, pays FROM LesEquipes ORDER BY numEq")
         self.refreshTable(self.ui.label_disciplines, self.ui.tableDisciplines,
                           "SELECT nomDi FROM LesDisciplines ORDER BY nomDi")
         self.refreshTable(self.ui.label_participants, self.ui.tableParticipants,
                           "SELECT num FROM LesParticipants ORDER BY num")
         self.refreshTable(self.ui.label_participations, self.ui.tableParticipations,
-                            "SELECT num, numEp FROM LesParticipations ORDER BY num")
+                          "SELECT num, numEp FROM LesParticipations ORDER BY num")
         self.refreshTable(self.ui.label_equipiers, self.ui.tableEquipiers,
                           "SELECT numEq, numSp FROM LesEquipiers ORDER BY numEq"),
 
