@@ -38,26 +38,28 @@ class AppTablesDataV1(QDialog):
     def refreshAllTablesV1(self):
 
         self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves,
-                          "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, ifnull(nbSportifsEp, 0), dateEp, MedailleOr, MedailleArgent, MedailleBronze FROM LesEpreuves")
+                          "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, "
+                          "ifnull(nbSportifsEp, 0), dateEp, MedailleOr, MedailleArgent, MedailleBronze "
+                          "FROM LesEpreuves ORDER BY numEp")
         self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs,
                           "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp "
-                          "FROM LesSportifs JOIN LesAgesSportifs USING (numSp)")
+                          "FROM LesSportifs JOIN LesAgesSportifs USING (numSp) ORDER BY numSp")
 
 
         self.refreshTable(self.ui.label_equipes, self.ui.tableEquipes,
-                            "SELECT numEq, paysEq FROM LesEquipes")
+                            "SELECT numEq, paysEq FROM LesEquipes ORDER BY numEq")
         self.refreshTable(self.ui.label_disciplines, self.ui.tableDisciplines,
-                          "SELECT nomDi FROM LesDisciplines")
+                          "SELECT nomDi FROM LesDisciplines ORDER BY nomDi")
         self.refreshTable(self.ui.label_participants, self.ui.tableParticipants,
-                          "SELECT num FROM LesParticipants")
+                          "SELECT num FROM LesParticipants ORDER BY num")
         self.refreshTable(self.ui.label_participations, self.ui.tableParticipations,
-                            "SELECT num, numEp FROM LesParticipations")
+                            "SELECT num, numEp FROM LesParticipations ORDER BY num")
         self.refreshTable(self.ui.label_a, self.ui.tableA,
-                            "SELECT nomDi, numEp  FROM A")
+                            "SELECT nomDi, numEp  FROM A ORDER BY nomDi")
         self.refreshTable(self.ui.label_equipiers, self.ui.tableEquipiers,
-                          "SELECT numEq, numSp FROM LesEquipiers"),
+                          "SELECT numEq, numSp FROM LesEquipiers ORDER BY numEq"),
 
         self.refreshTable(self.ui.label_agesSportifs, self.ui.tableAgesSportifs,
-                          "SELECT numSp, ageSp FROM LesAgesSportifs")
+                          "SELECT numSp, ageSp FROM LesAgesSportifs ORDER BY numSp")
         self.refreshTable(self.ui.label_nbEquipiers, self.ui.tableNbEquipiers,
-                          "SELECT numEq, nbEquipiers FROM LesNbsEquipiers")
+                          "SELECT numEq, nbEquipiers FROM LesNbsEquipiers ORDER BY numEq")
