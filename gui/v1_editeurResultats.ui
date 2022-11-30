@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>803</width>
+    <height>406</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>3.2 Gérer les résultats aux épreuves</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_7">
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="4">
+      <widget class="QPushButton" name="boutonAjouter">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>75</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Ajouter</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="medailleOr_comboBox2"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QComboBox" name="numEp_comboBox2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="medailleOr_comboBox1"/>
+     </item>
+     <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>numEp</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QComboBox" name="medailleBronze_comboBox1"/>
+     </item>
+     <item row="0" column="1" alignment="Qt::AlignHCenter">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>medailleOr</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0">
+      <widget class="QComboBox" name="numEp_comboBox1"/>
+     </item>
+     <item row="1" column="2">
+      <widget class="QComboBox" name="medailleArgent_comboBox1"/>
+     </item>
+     <item row="0" column="3" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>medailleBronze</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QComboBox" name="medailleArgent_comboBox2"/>
+     </item>
+     <item row="0" column="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>medailleArgent</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QComboBox" name="medailleBronze_comboBox2"/>
+     </item>
+     <item row="3" column="4">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="boutonSupprimer">
+         <property name="minimumSize">
+          <size>
+           <width>75</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>75</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="boutonModifier">
+         <property name="minimumSize">
+          <size>
+           <width>75</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>75</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_editeurResultats">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>boutonAjouter</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>ajouterResultat()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>794</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>boutonModifier</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>modifierResultat()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>794</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>boutonSupprimer</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>supprimerResultat()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>794</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>113</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>numEp_comboBox1</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshNumEpComboBox1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>101</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>numEp_comboBox2</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshNumEpComboBox2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>101</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>medailleOr_comboBox1</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshMedailleOrComboBox1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>medailleOr_comboBox2</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshMedailleOrComboBox2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>medailleArgent_comboBox1</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshMedailleArgentComboBox1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>medailleArgent_comboBox2</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshMedailleArgentComboBox2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>486</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>medailleBronze_comboBox1</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshMedailleBronzeComboBox1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>678</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>medailleBronze_comboBox2</sender>
+   <signal>activated(QString)</signal>
+   <receiver>Dialog</receiver>
+   <slot>refreshMedailleBronzeComboBox2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>678</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>163</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>ajouterResultat()</slot>
+  <slot>supprimerResultat()</slot>
+  <slot>modifierResultat()</slot>
+  <slot>refreshNumEpComboBox1()</slot>
+  <slot>refreshNumEpComboBox2()</slot>
+  <slot>refreshMedailleOrComboBox1()</slot>
+  <slot>refreshMedailleOrComboBox2()</slot>
+  <slot>refreshMedailleArgentComboBox1()</slot>
+  <slot>refreshMedailleArgentComboBox2()</slot>
+  <slot>refreshMedailleBronzeComboBox1()</slot>
+  <slot>refreshMedailleBronzeComboBox2()</slot>
+ </slots>
+</ui>

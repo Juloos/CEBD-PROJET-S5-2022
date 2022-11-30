@@ -14,50 +14,239 @@ class AppEditeurResultatsV1(QDialog):
         self.ui = uic.loadUi("gui/v1_editeurResultats.ui", self)
         self.data = data
 
-        # On met à jour l'affichage avec les données actuellement présentes dans la base
-        self.refreshAllTablesV1()
+        # attribuer les valeurs aux comboBox
+        self.refreshAll()
 
-    ####################################################################################################################
-    # Méthodes permettant de rafraichir les différentes tables
-    ####################################################################################################################
-
-    # Fonction de mise à jour de l'affichage d'une seule table
-    def refreshTable(self, label, table, query):
-        display.refreshLabel(label, "")
+    def tryquery(self, query):
         try:
-            cursor = self.data.cursor()
-            result = cursor.execute(query)
-        except Exception as e:
-            table.setRowCount(0)
-            display.refreshLabel(label, "Impossible d'afficher les données de la table : " + repr(e))
-        else:
-            display.refreshGenericData(table, result)
+            # print(query)
+            return self.data.cursor().execute(query)
+        except sqlite3.Error as err:
+            display.refreshLabel(
+                self.ui.label_editeurResultats,
+                "Impossible d'effectuer la requête dans la DB : " + repr(err)
+            )
+            return None
 
-    # Fonction permettant de mettre à jour toutes les tables
-    @pyqtSlot()
-    def refreshAllTablesV1(self):
+    def numEp_get1(self):
+        return self.ui.numEp_comboBox1.currentText()
 
-        self.refreshTable(self.ui.label_epreuves, self.ui.tableEpreuves,
-                          "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, ifnull(nbSportifsEp, 0), dateEp, MedailleOr, MedailleArgent, MedailleBronze FROM LesEpreuves")
-        self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs,
-                          "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, ageSp "
-                          "FROM LesSportifs JOIN LesAgesSportifs USING (numSp)")
+    def numEp_get2(self):
+        return self.ui.numEp_comboBox2.currentText()
 
+    def or_get1(self):
+        return self.ui.medailleOr_comboBox1.currentText()
 
-        self.refreshTable(self.ui.label_equipes, self.ui.tableEquipes,
-                            "SELECT numEq, paysEq FROM LesEquipes")
-        self.refreshTable(self.ui.label_disciplines, self.ui.tableDisciplines,
-                          "SELECT nomDi FROM LesDisciplines")
-        self.refreshTable(self.ui.label_participants, self.ui.tableParticipants,
-                          "SELECT num FROM LesParticipants")
-        self.refreshTable(self.ui.label_participations, self.ui.tableParticipations,
-                            "SELECT num, numEp FROM LesParticipations")
-        self.refreshTable(self.ui.label_a, self.ui.tableA,
-                            "SELECT nomDi, numEp  FROM A")
-        self.refreshTable(self.ui.label_equipiers, self.ui.tableEquipiers,
-                          "SELECT numEq, numSp FROM LesEquipiers"),
+    def or_get2(self):
+        return self.ui.medailleOr_comboBox2.currentText()
 
-        self.refreshTable(self.ui.label_agesSportifs, self.ui.tableAgesSportifs,
-                          "SELECT numSp, ageSp FROM LesAgesSportifs")
-        self.refreshTable(self.ui.label_nbEquipiers, self.ui.tableNbEquipiers,
-                          "SELECT numEq, nbEquipiers FROM LesNbsEquipiers")
+    def argent_get1(self):
+        return self.ui.medailleArgent_comboBox1.currentText()
+
+    def argent_get2(self):
+        return self.ui.medailleArgent_comboBox2.currentText()
+
+    def bronze_get1(self):
+        return self.ui.medailleBronze_comboBox1.currentText()
+
+    def bronze_get2(self):
+        return self.ui.medailleBronze_comboBox2.currentText()
+
+    def refreshNumEpComboBox1(self):
+        self.ui.medailleOr_comboBox1.clear()
+        self.ui.medailleArgent_comboBox1.clear()
+        self.ui.medailleBronze_comboBox1.clear()
+
+        for num, *_ in self.tryquery(
+                "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get1())
+        ):
+            self.ui.medailleOr_comboBox1.addItem(str(num))
+            self.ui.medailleArgent_comboBox1.addItem(str(num))
+            self.ui.medailleBronze_comboBox1.addItem(str(num))
+
+        self.ui.medailleOr_comboBox1.setCurrentIndex(0)
+        self.ui.medailleArgent_comboBox1.setCurrentIndex(1)
+        self.ui.medailleBronze_comboBox1.setCurrentIndex(2)
+
+    def refreshNumEpComboBox2(self):
+        self.ui.medailleOr_comboBox2.clear()
+        self.ui.medailleArgent_comboBox2.clear()
+        self.ui.medailleBronze_comboBox2.clear()
+
+        for num, *_ in self.tryquery(
+                "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get2())
+        ):
+            self.ui.medailleOr_comboBox2.addItem(str(num))
+            self.ui.medailleArgent_comboBox2.addItem(str(num))
+            self.ui.medailleBronze_comboBox2.addItem(str(num))
+
+        old_or = self.tryquery("SELECT medailleOr FROM LesEpreuves WHERE numEp = {}".format(self.numEp_get2()))
+        old_argent = self.tryquery("SELECT medailleArgent FROM LesEpreuves WHERE numEp = {}".format(self.numEp_get2()))
+        old_bronze = self.tryquery("SELECT medailleBronze FROM LesEpreuves WHERE numEp = {}".format(self.numEp_get2()))
+
+        self.ui.medailleOr_comboBox2.setCurrentText(str(old_or.fetchone()[0]))
+        self.ui.medailleArgent_comboBox2.setCurrentText(str(old_argent.fetchone()[0]))
+        self.ui.medailleBronze_comboBox2.setCurrentText(str(old_bronze.fetchone()[0]))
+
+    def refreshMedailleOrComboBox1(self):
+        itemlist = self.tryquery(
+            "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get1())
+        )
+        if itemlist is not None:
+            itemlist = set(map(lambda numtuple: numtuple[0], itemlist.fetchall()))
+            if self.or_get1() == self.argent_get1():
+                self.ui.medailleArgent_comboBox1.setCurrentText(
+                    str((itemlist - {int(self.or_get1()), int(self.bronze_get1())}).pop())
+                )
+            if self.or_get1() == self.bronze_get1():
+                self.ui.medailleBronze_comboBox1.setCurrentText(
+                    str((itemlist - {int(self.or_get1()), int(self.argent_get1())}).pop())
+                )
+
+    def refreshMedailleOrComboBox2(self):
+        itemlist = self.tryquery(
+            "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get2())
+        )
+        if itemlist is not None:
+            itemlist = set(map(lambda numtuple: numtuple[0], itemlist.fetchall()))
+            if self.or_get2() == self.argent_get2():
+                self.ui.medailleArgent_comboBox2.setCurrentText(
+                    str((itemlist - {int(self.or_get2()), int(self.bronze_get2())}).pop())
+                )
+            if self.or_get2() == self.bronze_get2():
+                self.ui.medailleBronze_comboBox2.setCurrentText(
+                    str((itemlist - {int(self.or_get2()), int(self.argent_get2())}).pop())
+                )
+
+    def refreshMedailleArgentComboBox1(self):
+        itemlist = self.tryquery(
+            "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get1())
+        )
+        if itemlist is not None:
+            itemlist = set(map(lambda numtuple: numtuple[0], itemlist.fetchall()))
+            if self.argent_get1() == self.or_get1():
+                self.ui.medailleOr_comboBox1.setCurrentText(
+                    str((itemlist - {int(self.argent_get1()), int(self.bronze_get1())}).pop())
+                )
+            if self.argent_get1() == self.bronze_get1():
+                self.ui.medailleBronze_comboBox1.setCurrentText(
+                    str((itemlist - {int(self.argent_get1()), int(self.or_get1())}).pop())
+                )
+
+    def refreshMedailleArgentComboBox2(self):
+        itemlist = self.tryquery(
+            "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get2())
+        )
+        if itemlist is not None:
+            itemlist = set(map(lambda numtuple: numtuple[0], itemlist.fetchall()))
+            if self.argent_get2() == self.or_get2():
+                self.ui.medailleOr_comboBox2.setCurrentText(
+                    str((itemlist - {int(self.argent_get2()), int(self.bronze_get2())}).pop())
+                )
+            if self.argent_get2() == self.bronze_get2():
+                self.ui.medailleBronze_comboBox2.setCurrentText(
+                    str((itemlist - {int(self.argent_get2()), int(self.or_get2())}).pop())
+                )
+
+    def refreshMedailleBronzeComboBox1(self):
+        itemlist = self.tryquery(
+            "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get1())
+        )
+        if itemlist is not None:
+            itemlist = set(map(lambda numtuple: numtuple[0], itemlist.fetchall()))
+            if self.bronze_get1() == self.or_get1():
+                self.ui.medailleOr_comboBox1.setCurrentText(
+                    str((itemlist - {int(self.bronze_get1()), int(self.argent_get1())}).pop())
+                )
+            if self.bronze_get1() == self.argent_get1():
+                self.ui.medailleArgent_comboBox1.setCurrentText(
+                    str((itemlist - {int(self.bronze_get1()), int(self.or_get1())}).pop())
+                )
+
+    def refreshMedailleBronzeComboBox2(self):
+        itemlist = self.tryquery(
+            "SELECT num FROM LesParticipations WHERE numEp = {} ORDER BY num".format(self.numEp_get2())
+        )
+        if itemlist is not None:
+            itemlist = set(map(lambda numtuple: numtuple[0], itemlist.fetchall()))
+            if self.bronze_get2() == self.or_get2():
+                self.ui.medailleOr_comboBox2.setCurrentText(
+                    str((itemlist - {int(self.bronze_get2()), int(self.argent_get2())}).pop())
+                )
+            if self.bronze_get2() == self.argent_get2():
+                self.ui.medailleArgent_comboBox2.setCurrentText(
+                    str((itemlist - {int(self.bronze_get2()), int(self.or_get2())}).pop())
+                )
+
+    def refreshAll(self):
+        self.ui.numEp_comboBox1.clear()
+        self.ui.numEp_comboBox2.clear()
+
+        sans_resultats = self.tryquery("SELECT numEp FROM LesEpreuves WHERE medailleOr IS NULL ORDER BY numEp")
+        avec_resultats = self.tryquery("SELECT numEp FROM LesEpreuves WHERE medailleOr IS NOT NULL ORDER BY numEp")
+
+        if sans_resultats is not None:
+            for numEp, *_ in sans_resultats:
+                self.ui.numEp_comboBox1.addItem(str(numEp))
+            self.refreshNumEpComboBox1()
+        if avec_resultats is not None:
+            for numEp, *_ in avec_resultats:
+                self.ui.numEp_comboBox2.addItem(str(numEp))
+            self.refreshNumEpComboBox2()
+
+    def ajouterResultat(self):
+        if self.tryquery(
+            "UPDATE LesEpreuves SET medailleOr = {}, medailleArgent = {}, medailleBronze = {} WHERE ("
+            "   numEp = {}"
+            ")".format(self.or_get1(), self.argent_get1(), self.bronze_get1(), self.numEp_get1())
+        ) is not None:
+            display.refreshLabel(self.ui.label_editeurResultats,
+                                 "Les résultats pour l'épreuve '{}' ont été ajoutés".format(self.numEp_get1())
+                                 )
+            self.data.commit()
+            self.refreshAll()
+
+    def supprimerResultat(self):
+        if self.tryquery(
+            "UPDATE LesEpreuves SET medailleOr = NULL, medailleArgent = NULL, medailleBronze = NULL WHERE ("
+            "   numEp = {}"
+            ")".format(self.numEp_get2())
+        ) is not None:
+            display.refreshLabel(self.ui.label_editeurResultats,
+                                 "Les résultats pour l'épreuve '{}' ont été réinitialisés".format(self.numEp_get2())
+                                 )
+            self.data.commit()
+            self.refreshAll()
+
+    def modifierResultat(self):
+        old_or = self.tryquery("SELECT medailleOr FROM LesEpreuves WHERE numEp = {}".format(self.numEp_get2()))
+        old_argent = self.tryquery("SELECT medailleArgent FROM LesEpreuves WHERE numEp = {}".format(self.numEp_get2()))
+        old_bronze = self.tryquery("SELECT medailleBronze FROM LesEpreuves WHERE numEp = {}".format(self.numEp_get2()))
+        if old_or is not None and old_argent is not None and old_bronze is not None:
+            old_or = str(old_or.fetchone()[0])
+            old_argent = str(old_argent.fetchone()[0])
+            old_bronze = str(old_bronze.fetchone()[0])
+            if old_or != self.or_get2() or old_argent != self.argent_get2() or old_bronze != self.bronze_get2():
+                if self.tryquery(
+                    "UPDATE LesEpreuves SET medailleOr = {}, medailleArgent = {}, medailleBronze = {} WHERE ("
+                    "   numEp = {}"
+                    ")".format(self.or_get2(), self.argent_get2(), self.bronze_get2(), self.numEp_get2())
+                ) is not None:
+                    labeltext = list()
+                    if old_or != self.or_get2():
+                        labeltext.append("(medailleOr) '{}' -> '{}'".format(old_or, self.or_get2()))
+                    if old_argent != self.argent_get2():
+                        labeltext.append("(medailleArgent) '{}' -> '{}'".format(old_argent, self.argent_get2()))
+                    if old_bronze != self.bronze_get2():
+                        labeltext.append("(medailleBronze) '{}' -> '{}'".format(old_bronze, self.bronze_get2()))
+                    display.refreshLabel(
+                        self.ui.label_editeurResultats,
+                        "Les résultats pour l'épreuve '{}' ont été modifiés: ".format(self.numEp_get2()) +
+                        ", ".join(labeltext)
+                    )
+                    self.data.commit()
+                    self.refreshAll()
+            else:
+                display.refreshLabel(self.ui.label_editeurResultats,
+                                     "Impossible d'effectuer la modification : les valeurs sont identiques"
+                                     )

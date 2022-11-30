@@ -10,7 +10,7 @@ class AppEditeurInscriptionsV1(QDialog):
     # Constructeur
     def __init__(self, data: sqlite3.Connection):
         super(QDialog, self).__init__()
-        self.ui = uic.loadUi("gui/editeurInscriptions.ui", self)
+        self.ui = uic.loadUi("gui/v1_editeurInscriptions.ui", self)
         self.data = data
 
         # attribuer les valeurs aux comboBox
@@ -52,9 +52,9 @@ class AppEditeurInscriptionsV1(QDialog):
         # proposer des épreuves où le participant sélectionné n'est pas déjà inscrit, pour les inscriptions
         self.ui.numEp_comboBox1.clear()
         result = self.tryquery(
-                "SELECT DISTINCT numEp FROM LesEpreuves WHERE numEp NOT IN ("
-                "   SELECT numEp FROM LesParticipations WHERE num = {}"
-                ") ORDER BY numEp".format(self.num_get1())
+            "SELECT DISTINCT numEp FROM LesEpreuves WHERE numEp NOT IN ("
+            "   SELECT numEp FROM LesParticipations WHERE num = {}"
+            ") ORDER BY numEp".format(self.num_get1())
         )
         if result is not None:
             for numEp, *_ in result:
@@ -80,9 +80,9 @@ class AppEditeurInscriptionsV1(QDialog):
         # proposer des épreuves où le participant sélectionné n'est pas déjà inscrit, pour les modifications
         self.ui.numEp_comboBox3.clear()
         result = self.tryquery(
-                "SELECT DISTINCT numEp FROM LesEpreuves WHERE numEp NOT IN ("
-                "   SELECT numEp FROM LesParticipations WHERE num = {} AND numEp != {}"
-                ") ORDER BY numEp".format(self.num_get2(), self.numEp_get2())
+            "SELECT DISTINCT numEp FROM LesEpreuves WHERE numEp NOT IN ("
+            "   SELECT numEp FROM LesParticipations WHERE num = {} AND numEp != {}"
+            ") ORDER BY numEp".format(self.num_get2(), self.numEp_get2())
         )
         if result is not None:
             for num, *_ in result:
@@ -93,9 +93,9 @@ class AppEditeurInscriptionsV1(QDialog):
         # proposer des participants qui ne sont pas déjà inscrit dans l'épreuve sélectionné, pour les modifications
         self.ui.num_comboBox3.clear()
         result = self.tryquery(
-                "SELECT DISTINCT num FROM LesParticipants WHERE num NOT IN ("
-                "   SELECT num FROM LesParticipations WHERE numEp = {} AND num != {}"
-                ") ORDER BY num".format(self.numEp_get2(), self.num_get2())
+            "SELECT DISTINCT num FROM LesParticipants WHERE num NOT IN ("
+            "   SELECT num FROM LesParticipations WHERE numEp = {} AND num != {}"
+            ") ORDER BY num".format(self.numEp_get2(), self.num_get2())
         )
         if result is not None:
             for num, *_ in result:
@@ -129,7 +129,7 @@ class AppEditeurInscriptionsV1(QDialog):
 
     def ajouterInscription(self):
         if self.tryquery(
-                "INSERT INTO LesParticipations VALUES ({},{})".format(self.num_get1(), self.numEp_get1())
+            "INSERT INTO LesParticipations VALUES ({},{})".format(self.num_get1(), self.numEp_get1())
         ) is not None:
             display.refreshLabel(self.ui.label_editeurInscriptions,
                                  "Le participant '{}' a été inscrit dans l'épreuve '{}'".format(
@@ -140,7 +140,7 @@ class AppEditeurInscriptionsV1(QDialog):
 
     def supprimerInscription(self):
         if self.tryquery(
-                "DELETE FROM LesParticipations WHERE num = {} AND numEp = {}".format(self.num_get2(), self.numEp_get2())
+            "DELETE FROM LesParticipations WHERE num = {} AND numEp = {}".format(self.num_get2(), self.numEp_get2())
         ) is not None:
             display.refreshLabel(self.ui.label_editeurInscriptions,
                                  "Le participant '{}' a été désinscrit de l'épreuve '{}'".format(
@@ -156,9 +156,9 @@ class AppEditeurInscriptionsV1(QDialog):
         newNumEp = self.numEp_get3()
         if oldNum != newNum or oldNumEp != newNumEp:
             if self.tryquery(
-                    "UPDATE LesParticipations SET num = {}, numEp = {} WHERE num = {} AND numEp = {}".format(
-                        newNum, newNumEp, oldNum, oldNumEp
-                    )
+                "UPDATE LesParticipations SET num = {}, numEp = {} WHERE num = {} AND numEp = {}".format(
+                    newNum, newNumEp, oldNum, oldNumEp
+                )
             ) is not None:
                 if oldNum != newNum:
                     display.refreshLabel(self.ui.label_editeurInscriptions,
