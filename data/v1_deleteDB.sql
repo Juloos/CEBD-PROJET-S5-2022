@@ -4,8 +4,12 @@ DROP TABLE IF EXISTS LesEpreuves;
 DROP TABLE IF EXISTS LesSportifs;
 DROP TABLE IF EXISTS LesDisciplines;
 DROP TABLE IF EXISTS LesParticipants;
-DROP TABLE IF EXISTS A;
 DROP TABLE IF EXISTS LesEquipiers;
 DROP TABLE IF EXISTS LesEquipes;
 DROP TABLE IF EXISTS LesParticipations;
--- TODO 3.3 : pensez à détruire vos triggers !
+DROP TRIGGER IF EXISTS check_insert_medailles_differentes;
+DROP TRIGGER IF EXISTS check_update_medailles_differentes;
+DROP TRIGGER IF EXISTS check_insert_medailles_attributions;
+DROP TRIGGER IF EXISTS check_update_medailles_attributions;
+DROP TRIGGER IF EXISTS check_insert_discipline_participants;
+DROP TRIGGER IF EXISTS check_update_discipline_participants;

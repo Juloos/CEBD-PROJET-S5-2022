@@ -100,7 +100,6 @@ def read_excel_file_V1(data: sqlite3.Connection, file):
 
         if row['nomDi'] != 'null':
             tryquery("insert into LesDisciplines values ('{}')".format(row['nomDi']))
-            tryquery("insert into A values ('{}',{})".format(row['nomDi'], row['numEp']))
 
     # Lecture de l'onglet du fichier excel LesInscriptions, en interprétant toutes les colonnes comme des
     # string pour construire uniformement la requête

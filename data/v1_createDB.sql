@@ -59,14 +59,6 @@ CREATE TABLE LesParticipants
     CONSTRAINT PA_CK1 CHECK (num > 0)
 );
 
-CREATE TABLE A
-(
-  nomDi VARCHAR2(25),
-  numEp NUMBER(3),
-  CONSTRAINT A_PK PRIMARY KEY (nomDi, numEp),
-  CONSTRAINT A_CK1 CHECK (numEp > 0)
-);
-
 CREATE TABLE LesEquipiers
 (
   numEq NUMBER(4),
@@ -85,4 +77,3 @@ CREATE VIEW LesNbsEquipiers(numEq, nbEquipiers) AS
         FROM LesEquipiers
         GROUP BY numEq;
 
--- TODO 3.3 : ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)
